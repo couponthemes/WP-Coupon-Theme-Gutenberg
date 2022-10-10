@@ -83,11 +83,6 @@ function wpcoupon_theme_register_required_plugins() {
             'required'  => false,
             'version'   => '1.0.1',
         ),
-        array(
-            'name'      => esc_html__( 'BP Star Ratings', 'wp-coupon' ),
-            'slug'      => 'bp-star-ratings',
-            'required'  => false,
-        ),
     );
 
     /**

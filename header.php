@@ -49,7 +49,7 @@ global $st_option;
                         foreach( $header_icons as $icon ){
                         ?>
                         <a href="<?php echo ( $icon['url'] ) ? esc_attr( $icon['url'] ) : '#'; ?>">
-                            <div class="highlight-icon"><?php echo ($icon['image'])?'<img src="'.balanceTags( $icon['image'] ).'" width="30">':balanceTags( $icon['description']); ?></div>
+                            <div class="highlight-icon"><?php echo balanceTags( $icon['description'] ); ?></div>
                             <div class="highlight-text"><?php echo esc_html( $icon['title'] ); ?></div>
                         </a>
                         <?php } ?>

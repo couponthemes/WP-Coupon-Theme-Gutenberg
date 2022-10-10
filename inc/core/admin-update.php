@@ -29,7 +29,7 @@ class EDD_Theme_Updater_Admin {
     function __construct( $config = array(), $strings = array() ) {
 
         $config = wp_parse_args( $config, array(
-            'remote_api_url' => 'https://couponthemes.net/',
+            'remote_api_url' => 'http://easydigitaldownloads.com',
             'theme_slug'     => get_template(),
             'item_name'      => '',
             'license'        => '',
@@ -55,7 +55,7 @@ class EDD_Theme_Updater_Admin {
             $theme = wp_get_theme( $this->theme_slug );
             $this->version = $theme->get( 'Version' );
         }
-
+        
         // Strings passed in from the updater config
         $this->strings = $strings;
 
@@ -109,8 +109,8 @@ class EDD_Theme_Updater_Admin {
         if ( class_exists( 'ReduxFrameworkPlugin' ) ) {
             add_submenu_page(
                 'wpcoupon_options',
-                esc_html__( 'Active Theme', 'wp-coupon' ),
-                esc_html__('Active', 'wp-coupon' ),
+                 esc_html__( 'Auto Update', 'wp-coupon' ),
+                esc_html__('Auto Update', 'wp-coupon' ),
                 'edit_theme_options',
                 $this->theme_slug . '-auto-update',
                 array( $this, 'license_page' )
@@ -184,7 +184,7 @@ class EDD_Theme_Updater_Admin {
                                     <?php echo $message; ?>
                                 </p>
                             </div>
-                            <p>Enter your license key to enable automatic theme updates. Find your license key at your CouponThemes Dashboard, under Licenses section.</p>
+                            <p>Enter your license key to enable automatic theme updates. Find your license key at your FameThemes Dashboard, under Licenses section.</p>
                         </td>
                     </tr>
 
@@ -370,6 +370,7 @@ class EDD_Theme_Updater_Admin {
                 $this->deactivate_license();
             }
         }
+
     }
 
     /**
@@ -489,12 +490,12 @@ $updater = new EDD_Theme_Updater_Admin(
 
     // Config settings
     $config = array(
-        'remote_api_url' => 'https://couponthemes.net/', // Site where EDD is hosted
-        'item_name'      => 'WP Coupon Themes', // Name of theme
+        'remote_api_url' => 'https://www.famethemes.com', // Site where EDD is hosted
+        'item_name'      => 'Coupon WP', // Name of theme
         'theme_slug'     => get_template(), // Theme slug
         'version'        => $theme_data->Version, // The current version of this theme
         'author'         => $theme_data->Author, // The author of this theme
-        'download_id'    => '1508', // Optional, used for generating a license renewal link
+        'download_id'    => '22360', // Optional, used for generating a license renewal link
         'renew_url'      => '', // Optional, allows for a custom license renewal link
         'doc_url'		 => 'http://docs.famethemes.com/category/68-coupon-wp',
     ),

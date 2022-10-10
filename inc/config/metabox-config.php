@@ -16,6 +16,7 @@ if ( file_exists(  get_template_directory() . '/inc/metabox/init.php' ) ) {
     require_once  get_template_directory() . '/inc/metabox-addons/icon/icon.php';
 }
 
+
 function cmb2_change_minutes_step( $l10n ){
     $l10n['defaults']['time_picker']['stepMinute'] = 1;
     return $l10n;
@@ -30,6 +31,8 @@ add_filter( 'cmb2_localized_data', 'cmb2_change_minutes_step' );
 function cmb2_html_content_sanitize( $content ) {
     return apply_filters( 'content_save_pre', $content );
 }
+
+
 
 /**
  * Metabox for Show on page IDs callback
