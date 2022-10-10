@@ -17,21 +17,19 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function carousel_block_editor_assets() {
 	// Register block editor script for backend.
-	wp_enqueue_script(
-		'carousel-block-editor',
-		plugins_url( '/dist/blocks.build.js', __FILE__ ),
-		[ 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-editor' ],
-		filemtime( CB_PLUGIN_DIR . '/dist/blocks.build.js' ),
-		true
-	);
+
+    wp_enqueue_script( 'carousel-block-editor',
+        get_stylesheet_directory_uri() . '/inc/block/carousel-block/dist/blocks.build.js',
+        [ 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-editor' ],
+        array( 'jquery' ) );
 
 	// Register block editor styles for backend.
-	wp_enqueue_style(
-		'carousel-block-editor',
-		plugins_url( '/dist/blocks.editor.build.css', __FILE__ ),
-		[ 'wp-edit-blocks' ],
-		filemtime( CB_PLUGIN_DIR . '/dist/blocks.editor.build.css' )
-	);
+
+
+    wp_enqueue_style( 'carousel-block-editor',
+        get_template_directory_uri() . '/inc/block/carousel-block/dist/blocks.editor.build.css',
+        [ 'wp-edit-blocks' ],
+        true );
 }
 
 add_action( 'enqueue_block_editor_assets', 'carousel_block_editor_assets' );
@@ -41,21 +39,19 @@ add_action( 'enqueue_block_editor_assets', 'carousel_block_editor_assets' );
  */
 function carousel_block_assets() {
 	if ( ! is_admin() ) {
-		wp_enqueue_style(
-			'carousel-block-slick',
-			plugins_url( '/dist/assets/vendor/slick/slick.min.css', __FILE__ ),
-			[],
-			filemtime( CB_PLUGIN_DIR . '/dist/assets/vendor/slick/slick.min.css' ),
-			false
-		);
+        wp_enqueue_style( 'carousel-block-slick',
+            get_template_directory_uri() . '/inc/block/carousel-block/dist/assets/vendor/slick/slick.min.css',
+            [],
+            false
+        );
 	}
 
 	wp_enqueue_style(
 		'carousel-block',
-		plugins_url( '/dist/blocks.style.build.css', __FILE__ ),
-		[],
-		filemtime( CB_PLUGIN_DIR . '/dist/blocks.style.build.css' )
-	);
+        get_template_directory_uri() . '/inc/block/carousel-block/dist/blocks.style.build.css',
+        [],
+        true
+    );
 }
 
 add_action( 'enqueue_block_assets', 'carousel_block_assets' );

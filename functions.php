@@ -539,7 +539,7 @@ require_once get_template_directory() . '/inc/widgets/slider.php';
  * Blocks
  */
 require_once get_template_directory() . '/inc/block/simple-heading-text/simple-heading-text.php';
-//require_once get_template_directory() . '/inc/block/carousel-block/slide.php';
+require_once get_template_directory() . '/inc/block/carousel-block/slide.php';
 
 
 if ( wpcoupon_is_wc() ) {
