@@ -15,17 +15,15 @@ function render_block_cb_carousel( $attributes, $content ) {
 	if ( ! is_admin() ) {
 		wp_enqueue_script(
 			'carousel-block-slick',
-			plugins_url( 'dist/assets/vendor/slick/slick.min.js', dirname( __DIR__ ) ),
+            get_template_directory_uri(). '/inc/block/carousel-block/dist/assets/vendor/slick/slick.min.js',
 			[ 'jquery' ],
-			filemtime( CB_PLUGIN_DIR . '/dist/assets/vendor/slick/slick.min.js' ),
 			true
 		);
 
 		wp_enqueue_script(
 			'carousel-block-view',
-			plugins_url( 'carousel/view.js', dirname( __FILE__ ) ),
+            get_template_directory_uri() . '/inc/block/carousel-block/blocks/carousel/view.js',
 			[ 'jquery', 'carousel-block-slick' ],
-			filemtime( plugin_dir_path( __DIR__ ) . 'carousel/view.js' ),
 			true
 		);
 	}

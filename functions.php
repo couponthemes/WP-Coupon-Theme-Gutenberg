@@ -105,6 +105,7 @@ if ( ! function_exists( 'wpcoupon_theme_setup' ) ) :
 endif; // wpcoupon_theme_setup
 add_action( 'after_setup_theme', 'wpcoupon_theme_setup' );
 
+
 /**
  * Register widget area.
  *
@@ -287,6 +288,11 @@ function wpcoupon_theme_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+
+
+    wp_enqueue_script( 'slick.min', get_template_directory_uri() . '/inc/block/carousel-block/dist/assets/vendor/slick/slick.min.js', array( 'jquery' ), $version, true );
+
 	wp_enqueue_script( 'wpcoupon_libs', get_template_directory_uri() . '/assets/js/libs.js', array( 'jquery' ), $version, true );
 	wp_enqueue_script( 'wpcoupon_semantic', get_template_directory_uri() . '/assets/js/libs/semantic.js', array( 'jquery' ), $version, false );
 	wp_enqueue_script( 'wpcoupon_global', get_template_directory_uri() . '/assets/js/global.js', array( 'jquery', 'wpcoupon_semantic', 'wpcoupon_libs' ), $version, true );
@@ -538,8 +544,13 @@ require_once get_template_directory() . '/inc/widgets/slider.php';
 /**
  * Blocks
  */
-require_once get_template_directory() . '/inc/block/simple-heading-text/simple-heading-text.php';
+//require_once get_template_directory() . '/inc/block/simple-heading-text/simple-heading-text.php';
 require_once get_template_directory() . '/inc/block/carousel-block/slide.php';
+//require_once get_template_directory() . '/inc/block/test/test.php';
+
+require_once get_template_directory() . '/inc/block/my-cool-border-box/my-block.php';
+//require_once get_template_directory() . '/inc/block/slider/slider.php';
+
 
 
 if ( wpcoupon_is_wc() ) {

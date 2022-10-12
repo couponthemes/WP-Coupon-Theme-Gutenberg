@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function carousel_block_editor_assets() {
 	// Register block editor script for backend.
 
-    wp_enqueue_script( 'carousel-block-editor',
+    wp_enqueue_script( 'block-build',
         get_stylesheet_directory_uri() . '/inc/block/carousel-block/dist/blocks.build.js',
         [ 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-editor' ],
         array( 'jquery' ) );
@@ -26,7 +26,7 @@ function carousel_block_editor_assets() {
 	// Register block editor styles for backend.
 
 
-    wp_enqueue_style( 'carousel-block-editor',
+    wp_enqueue_style( 'blocks-editor-build',
         get_template_directory_uri() . '/inc/block/carousel-block/dist/blocks.editor.build.css',
         [ 'wp-edit-blocks' ],
         true );
@@ -39,7 +39,7 @@ add_action( 'enqueue_block_editor_assets', 'carousel_block_editor_assets' );
  */
 function carousel_block_assets() {
 	if ( ! is_admin() ) {
-        wp_enqueue_style( 'carousel-block-slick',
+        wp_enqueue_style( 'slick-min',
             get_template_directory_uri() . '/inc/block/carousel-block/dist/assets/vendor/slick/slick.min.css',
             [],
             false
@@ -47,7 +47,7 @@ function carousel_block_assets() {
 	}
 
 	wp_enqueue_style(
-		'carousel-block',
+		'block-style-build',
         get_template_directory_uri() . '/inc/block/carousel-block/dist/blocks.style.build.css',
         [],
         true

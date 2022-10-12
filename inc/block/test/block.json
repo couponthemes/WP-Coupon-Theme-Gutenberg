@@ -1,0 +1,10 @@
+{
+  "apiVersion": 2,
+  "title": "Test Widget",
+  "name": "gutenberg-examples/test",
+  "category": "widgets",
+  "icon": "filter",
+  "editorScript": "file:./block.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css"
+}

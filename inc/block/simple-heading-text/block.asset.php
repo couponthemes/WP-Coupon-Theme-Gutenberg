@@ -1,8 +1,11 @@
 <?php return array(
     'dependencies' =>
-        array('wp-blocks',
+        array(
+            'wp-blocks',
             'wp-element',
-            'wp-i18n',
-            'wp-editor'
+            'wp-editor',
+            'wp-components',
+            'wp-dom-ready',
+            'wp-edit-post',
         ),
-    'version' => 'a35cc1c098b69994c9c6d6dc1416bb90');
+    'version' => '0.1');
