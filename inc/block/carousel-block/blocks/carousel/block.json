@@ -3,7 +3,7 @@
 	"apiVersion": 2,
 	"name": "cb/carousel",
 	"title": "Carousel Slider",
-	"category": "design",
+	"category": "widgets",
 	"description": "Display a carousel with any blocks in the slides.",
 	"version": "1.0.0",
 	"keywords": [  "slide", "carousel", "slider", "slideshow" ],
