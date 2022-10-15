@@ -432,6 +432,7 @@ function wpcoupon_get_coupon_types( $plural = false ) {
 	return apply_filters( 'wpcoupon_get_coupon_types', $types, $plural );
 }
 
+
 /**
  * Recommend plugins via TGM activation class
  */
@@ -547,10 +548,9 @@ require_once get_template_directory() . '/inc/widgets/slider.php';
 //require_once get_template_directory() . '/inc/block/simple-heading-text/simple-heading-text.php';
 //require_once get_template_directory() . '/inc/block/carousel-block/slide.php';
 //require_once get_template_directory() . '/inc/block/test/test.php';
+require_once get_template_directory() . '/inc/block/trending-coupon/trending-coupon.php';
 
 //require_once get_template_directory() . '/inc/block/my-cool-border-box/my-block.php';
-
-
 
 
 if ( wpcoupon_is_wc() ) {
