@@ -11,3 +11,4 @@
     } );
 
 })( window.wp.blocks, window.wp.element );
+

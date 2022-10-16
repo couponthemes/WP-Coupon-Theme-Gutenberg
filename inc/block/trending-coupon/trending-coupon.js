@@ -7,7 +7,11 @@ wp.blocks.registerBlockType('brad/border-box', {
     attributes: {
         block_title: {type: 'string'},
         coupon_nb: {type: 'string'},
-        excr_len: {type: 'string'}
+        excr_len: {type: 'string'},
+        get_btn: {
+            type: 'string',
+            default: ''
+        }
     },
     edit:function (props){
         function updateContent(event){
@@ -19,6 +23,17 @@ wp.blocks.registerBlockType('brad/border-box', {
         function updateExcr_len(event){
             props.setAttributes({excr_len: event.target.value})
         }
+        /*
+        *Test
+         */
+        function updateGet_btn(event) {
+            if (event.target.checked) {
+                props.setAttributes({ get_btn: 'on' });
+            } else {
+                props.setAttributes({ get_btn: '' });
+            }
+        }
+
         return wp.element.createElement(
             "div",
             {
@@ -63,44 +78,19 @@ wp.blocks.registerBlockType('brad/border-box', {
                     onChange: updateExcr_len
                 })
             ),
-
-            // wp.element.createElement(
-            //     "p",
-            //     null,
-            //     wp.element.createElement("label", null, "Show paging:"),
-            //     wp.element.createElement("input", {
-            //         type: "checkbox",
-            //         name: "show_paging",
-            //         class: "show_paging",
-            //         id: "show_paging"
-            //     })
-            // ),
-            // wp.element.createElement(
-            //     "p",
-            //     null,
-            //     wp.element.createElement(
-            //         "label",
-            //         null,
-            //         "Do not show expired coupons."
-            //     ),
-            //     wp.element.createElement("input", {
-            //         type: "checkbox",
-            //         name: "remove_exp_coupon",
-            //         class: "remove_exp_coupon",
-            //         id: "remove_exp_coupon"
-            //     })
-            // ),
-            // wp.element.createElement(
-            //     "p",
-            //     null,
-            //     wp.element.createElement("label", null, "Show Get Button:"),
-            //     wp.element.createElement("input", {
-            //         type: "checkbox",
-            //         name: "show_get_btn",
-            //         class: "show_get_btn",
-            //         id: "show_get_btn"
-            //     })
-            // )
+            wp.element.createElement(
+                "p",
+                null,
+                wp.element.createElement("input", {
+                    type: "checkbox",
+                    id: "get_btn",
+                    class: "get_btn",
+                    value: 'closed-get_btn',
+                    checked: props.attributes.get_btn ? 'checked' : '',
+                    onChange: updateGet_btn
+                }),
+                wp.element.createElement("label", null, "Show Get Button")
+            )
         );
     },
     save:function (props){
@@ -111,7 +101,7 @@ wp.blocks.registerBlockType('brad/border-box', {
              wp.element.createElement(
                 "p",
                 null,
-                '[coupon item_count="',
+                '[wp_coupon item_count="',
                 props.attributes.coupon_nb,
                 '" description_count="',
                 props.attributes.excr_len,

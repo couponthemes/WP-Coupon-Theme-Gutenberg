@@ -1,8 +1,8 @@
 <?php
 
-add_shortcode( 'coupon', 'bartag_func' );
+add_shortcode( 'wp_coupon', 'coupon_func' );
 
-function copupon_func( $atts, $content = null ) {
+function coupon_func( $atts, $content = null ) {
     $a = shortcode_atts( array(
         'item_count' => '3',
         'description_count' => '15',
@@ -27,8 +27,7 @@ function copupon_func( $atts, $content = null ) {
             <div class="BlogsTitle">
                 <h3 class="coupon-title">
                     <?php edit_post_link('<i class="edit icon"></i>', '', '', wpcoupon_coupon()->ID ); ?>
-                    <a
-                            title="<?php echo esc_attr( get_the_title( wpcoupon_coupon()->ID ) ) ?>"
+                    <a title="<?php echo esc_attr( get_the_title( wpcoupon_coupon()->ID ) ) ?>"
                         <?php if ( ! wpcoupon_is_single_enable() ) { ?>
                             rel="nofollow"
                         <?php } ?>

@@ -525,11 +525,6 @@ add_theme_support( 'woocommerce' );
 require_once get_template_directory() . '/inc/config/woocommerce-config.php';
 
 /**
- * Short Code
- */
-require_once get_template_directory() . '/inc/block/trending-coupon/trending-coupon.php';
-
-/**
  * Widgets
  */
 require_once get_template_directory() . '/inc/widgets/_assets.php';
