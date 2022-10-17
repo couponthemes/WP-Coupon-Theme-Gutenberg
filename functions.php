@@ -537,13 +537,16 @@ require_once get_template_directory() . '/inc/widgets/sidebar.php';
 require_once get_template_directory() . '/inc/widgets/headline.php';
 require_once get_template_directory() . '/inc/widgets/slider.php';
 
+
 /**
  * Blocks
  */
 //require_once get_template_directory() . '/inc/block/simple-heading-text/simple-heading-text.php';
 //require_once get_template_directory() . '/inc/block/carousel-block/slide.php';
 //require_once get_template_directory() . '/inc/block/test/test.php';
+
 require_once get_template_directory() . '/inc/block/trending-coupon/trending-coupon.php';
+require_once get_template_directory() . '/inc/block/store-list/store-list.php';
 
 //require_once get_template_directory() . '/inc/block/my-cool-border-box/my-block.php';
 

@@ -1,13 +1,21 @@
 /*alert("Hello! I am an alert box!!");*/
 
 wp.blocks.registerBlockType('brad/border-box', {
-    title: 'Trending Coupons',
+    title: 'WPCoupon Coupons',
     icon: 'tag',
     category: 'widgets',
     attributes: {
-        block_title: {type: 'string'},
         coupon_nb: {type: 'string'},
-        excr_len: {type: 'string'},
+        coupon_excerpt: {type: 'string'},
+        coupon_excerpt_hide_img: {type: 'string'},
+        box_layout: {
+            type: 'string',
+            default: 'less'
+        },
+        paging: {
+            type: 'string',
+            default: 'no'
+        },
         get_btn: {
             type: 'string',
             default: ''
@@ -34,62 +42,236 @@ wp.blocks.registerBlockType('brad/border-box', {
             }
         }
 
-        return wp.element.createElement(
+        return React.createElement(
             "div",
-            {
-                class: "widget-content"
-            },
-            wp.element.createElement(
+            null,
+            React.createElement(
                 "p",
                 null,
-                wp.element.createElement("label", null, "Title:"),
-                wp.element.createElement("input", {
-                    type: "text",
-                    name: "block_title",
-                    class: "block_title",
-                    id: "block_title",
-                    value: props.attributes.block_title,
-                    onChange: updateContent
-                })
+                React.createElement(
+                    "label",
+                    null,
+                    React.createElement(
+                        "strong",
+                        null,
+                        "Number coupons to show:"
+                    )
+                )
             ),
-            wp.element.createElement(
+            React.createElement(
                 "p",
                 null,
-                wp.element.createElement("label", null, "Number coupons to show:"),
-                wp.element.createElement("input", {
+                React.createElement("input", {
                     type: "number",
                     name: "coupon_nb",
-                    class: "coupon_nb",
                     id: "coupon_nb",
-                    value: props.attributes.coupon_nb,
-                    onChange: updateCoupon_nb
+                    class: "coupon_nb",
+                    style: "width: 100%;",
+                    placeholder: "Enter the number of coupon amount in here.",
+                    value: "",
+                    onChange: ""
                 })
             ),
-            wp.element.createElement(
+            React.createElement(
                 "p",
                 null,
-                wp.element.createElement("label", null, "Excerpt length:"),
-                wp.element.createElement("input", {
+                React.createElement(
+                    "label",
+                    null,
+                    React.createElement("strong", null, "Excerpt length:")
+                )
+            ),
+            React.createElement(
+                "p",
+                null,
+                React.createElement("input", {
                     type: "number",
-                    name: "excr_len",
-                    class: "excr_len",
-                    id: "excr_len",
-                    value: props.attributes.excr_len,
-                    onChange: updateExcr_len
+                    name: "coupon_excerpt",
+                    id: "coupon_excerpt",
+                    class: "coupon_excerpt",
+                    style: "width: 100%;",
+                    placeholder: "Enter the number of coupon excerpt in here.",
+                    value: "",
+                    onChange: ""
                 })
             ),
-            wp.element.createElement(
+            React.createElement(
                 "p",
                 null,
-                wp.element.createElement("input", {
+                React.createElement(
+                    "label",
+                    null,
+                    React.createElement(
+                        "strong",
+                        null,
+                        "Excerpt length if hide thumbnails:"
+                    )
+                )
+            ),
+            React.createElement(
+                "p",
+                null,
+                React.createElement("input", {
+                    type: "number",
+                    name: "coupon_excerpt_hide_img",
+                    id: "coupon_excerpt_hide_img",
+                    class: "coupon_excerpt_hide_img",
+                    style: "width: 100%",
+                    placeholder:
+                        "Enter the number of coupon excerpt for when thumbnails is hide in here.",
+                    value: "",
+                    onChange: ""
+                })
+            ),
+            React.createElement(
+                "p",
+                null,
+                React.createElement(
+                    "label",
+                    null,
+                    React.createElement("strong", null, "Box layout:")
+                )
+            ),
+            React.createElement(
+                "p",
+                null,
+                React.createElement(
+                    "select",
+                    {
+                        id: "box_layout",
+                        class: "box_layout",
+                        style: "width: 100%;",
+                        value: imageFilter,
+                        onChange: setFilter
+                    },
+                    React.createElement(
+                        "option",
+                        {
+                            value: "less"
+                        },
+                        "Less"
+                    ),
+                    React.createElement(
+                        "option",
+                        {
+                            value: "full"
+                        },
+                        "Full"
+                    )
+                )
+            ),
+            React.createElement(
+                "p",
+                null,
+                React.createElement(
+                    "label",
+                    null,
+                    React.createElement("strong", null, "Show paging:")
+                )
+            ),
+            React.createElement(
+                "p",
+                null,
+                React.createElement(
+                    "select",
+                    {
+                        id: "paging",
+                        name: "paging",
+                        style: "width: 100%;",
+                        value: imageFilter,
+                        onChange: setFilter
+                    },
+                    React.createElement(
+                        "option",
+                        {
+                            value: "no"
+                        },
+                        "No"
+                    ),
+                    React.createElement(
+                        "option",
+                        {
+                            value: "yes"
+                        },
+                        "Yes"
+                    )
+                )
+            ),
+            React.createElement(
+                "p",
+                null,
+                React.createElement("input", {
                     type: "checkbox",
-                    id: "get_btn",
-                    class: "get_btn",
-                    value: 'closed-get_btn',
-                    checked: props.attributes.get_btn ? 'checked' : '',
-                    onChange: updateGet_btn
+                    name: "exp_coupon",
+                    id: "exp_coupon",
+                    class: "exp_coupon",
+                    value: "",
+                    onChange: ""
                 }),
-                wp.element.createElement("label", null, "Show Get Button")
+                React.createElement(
+                    "label",
+                    null,
+                    React.createElement(
+                        "strong",
+                        null,
+                        "Do not show expired coupons."
+                    )
+                )
+            ),
+            React.createElement(
+                "p",
+                null,
+                React.createElement("input", {
+                    type: "checkbox",
+                    name: "latest_coupon_tab_hide",
+                    id: "latest_coupon_tab_hide",
+                    class: "latest_coupon_tab_hide",
+                    value: "",
+                    onChange: ""
+                }),
+                React.createElement(
+                    "label",
+                    null,
+                    React.createElement(
+                        "strong",
+                        null,
+                        "Hide latest coupons tab"
+                    )
+                )
+            ),
+            React.createElement(
+                "p",
+                null,
+                React.createElement("input", {
+                    type: "checkbox",
+                    name: "popupar_tab",
+                    id: "popupar_tab",
+                    class: "popupar_tab",
+                    value: "",
+                    onChange: ""
+                }),
+                React.createElement(
+                    "label",
+                    null,
+                    React.createElement("strong", null, "Show popular tab")
+                )
+            ),
+            React.createElement(
+                "p",
+                null,
+                React.createElement("input", {
+                    type: "checkbox",
+                    name: "ending_tab",
+                    id: "ending_tab",
+                    class: "ending_tab",
+                    value: "",
+                    onChange: ""
+                }),
+                React.createElement(
+                    "label",
+                    null,
+                    React.createElement("strong", null, "Show ending tab")
+                )
             )
         );
     },

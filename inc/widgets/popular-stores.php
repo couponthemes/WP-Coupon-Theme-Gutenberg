@@ -108,7 +108,10 @@ class WPCoupon_Popular_Store extends WP_Widget {
                 <?php } ?>
             </div>
         </div>
+
+
         <?php
+
        // wp_reset_postdata();
         echo $args['after_widget'];
     }
