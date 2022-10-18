@@ -268,6 +268,24 @@ function wpcoupon_widgets_init() {
 add_action( 'widgets_init', 'wpcoupon_widgets_init' );
 
 /**
+ * Enqueue Block scripts and styles.
+ */
+function block_function() {
+
+    $blockPath1 = '/inc/block/block.js';
+
+    // Enqueue the block index.js file
+    wp_enqueue_script(
+        'block', // unique handle
+        get_template_directory_uri() . $blockPath1,
+        [ 'wp-blocks', 'wp-element', 'wp-i18n' ], // required dependencies for blocks
+        filemtime( get_template_directory() . $blockPath1 )
+    );
+
+}
+add_action( 'enqueue_block_editor_assets', 'block_function' );
+
+/**
  * Enqueue scripts and styles.
  */
 function wpcoupon_theme_scripts() {
@@ -293,6 +311,7 @@ function wpcoupon_theme_scripts() {
 	wp_enqueue_script( 'wpcoupon_libs', get_template_directory_uri() . '/assets/js/libs.js', array( 'jquery' ), $version, true );
 	wp_enqueue_script( 'wpcoupon_semantic', get_template_directory_uri() . '/assets/js/libs/semantic.js', array( 'jquery' ), $version, false );
 	wp_enqueue_script( 'wpcoupon_global', get_template_directory_uri() . '/assets/js/global.js', array( 'jquery', 'wpcoupon_semantic', 'wpcoupon_libs' ), $version, true );
+
 
 	$localize = array(
 		'ajax_url'        => admin_url( 'admin-ajax.php' ),
@@ -545,8 +564,9 @@ require_once get_template_directory() . '/inc/widgets/slider.php';
 //require_once get_template_directory() . '/inc/block/carousel-block/slide.php';
 //require_once get_template_directory() . '/inc/block/test/test.php';
 
-require_once get_template_directory() . '/inc/block/trending-coupon/trending-coupon.php';
 require_once get_template_directory() . '/inc/block/store-list/store-list.php';
+require_once get_template_directory() . '/inc/block/trending-coupon/trending-coupon.php';
+require_once get_template_directory() . '/inc/block/category-list/category-list.php';
 
 //require_once get_template_directory() . '/inc/block/my-cool-border-box/my-block.php';
 

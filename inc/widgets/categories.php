@@ -218,12 +218,10 @@ class WPCoupon_Categories extends WP_Widget {
 
 } // class Popular_Store
 
-
 function wpcoupon_register_categories_widget() {
     register_widget( 'WPCoupon_Categories' );
 }
 add_action( 'widgets_init', 'wpcoupon_register_categories_widget' );
-
 
 
 class WPCoupon_Walker_Category extends Walker_Category{
