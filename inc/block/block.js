@@ -788,3 +788,976 @@ wp.blocks.registerBlockType('wp-coupon/categorylist', {
         );
     }
 });
+
+wp.blocks.registerBlockType('wp-coupon/newsletter', {
+    title: 'WPCoupon Newsletter',
+    icon: 'email-alt',
+    category: 'widgets',
+    attributes: {
+        mail_chimp_action: {type: 'string'},
+        before_form: {type: 'string'},
+        after_form: {type: 'string'},
+        facebook_url: {type: 'string'},
+        twitter_url: {type: 'string'},
+        linkedin_url: {type: 'string'},
+        google_url: {type: 'string'},
+        flicker_url: {type: 'string'},
+        youtube_url: {type: 'string'},
+        instagram_url: {type: 'string'},
+        pinterest_url: {type: 'string'},
+        social_link_target: {
+            type: 'string',
+            default: 'name'
+        },
+    },
+    edit:function (props){
+        function updateMail_chimp_action(event){
+            props.setAttributes({mail_chimp_action: event.target.value})
+        }
+        function updateBefore_form(event){
+            props.setAttributes({before_form: event.target.value})
+        }
+        function updateAfter_form(event){
+            props.setAttributes({after_form: event.target.value})
+        }
+        function updateFacebook_url(event){
+            props.setAttributes({facebook_url: event.target.value})
+        }
+        function updateTwitter_url(event){
+            props.setAttributes({twitter_url: event.target.value})
+        }
+        function updateLinkedin_url(event){
+            props.setAttributes({linkedin_url: event.target.value})
+        }
+        function updateGoogle_url(event){
+            props.setAttributes({google_url: event.target.value})
+        }
+        function updateFlicker_url(event){
+            props.setAttributes({flicker_url: event.target.value})
+        }
+        function updateYoutube_url(event){
+            props.setAttributes({youtube_url: event.target.value})
+        }
+        function updateInstagram_url(event){
+            props.setAttributes({instagram_url: event.target.value})
+        }
+        function updatePinterest_url(event){
+            props.setAttributes({pinterest_url: event.target.value})
+        }
+        function updateSocial_link_target(event){
+            props.setAttributes({social_link_target: event.target.value})
+        }
+        return wp.element.createElement(
+            "div",
+            null,
+            wp.element.createElement("h4", null, "WP Coupon Newsletter"),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement("strong", null, "Mailchimp action:")
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement("input", {
+                        type: "text",
+                        name: "mail_chimp_action",
+                        id: "mail_chimp_action",
+                        class: "mail_chimp_action",
+                        value: props.attributes.mail_chimp_action,
+                        onChange: updateMail_chimp_action
+                    })
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement("strong", null, "Before form:")
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement("input", {
+                        type: "text",
+                        name: "before_form",
+                        id: "before_form",
+                        class: "before_form",
+                        value: props.attributes.before_form,
+                        onChange: updateBefore_form
+                    })
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement("strong", null, "After form:")
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement("input", {
+                        type: "text",
+                        name: "after_form",
+                        id: "after_form",
+                        class: "after_form",
+                        value: props.attributes.after_form,
+                        onChange: updateAfter_form
+                    })
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement("strong", null, "facebook URL:")
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement("input", {
+                        type: "text",
+                        name: "facebook_url",
+                        id: "facebook_url",
+                        class: "facebook_url",
+                        value: props.attributes.facebook_url,
+                        onChange: updateFacebook_url
+                    })
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement("strong", null, "twitter URL:")
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement("input", {
+                        type: "text",
+                        name: "twitter_url",
+                        id: "twitter_url",
+                        class: "twitter_url",
+                        value: props.attributes.twitter_url,
+                        onChange: updateTwitter_url
+                    })
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement("strong", null, "linkedin URL:")
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement("input", {
+                        type: "text",
+                        name: "linkedin_url",
+                        id: "linkedin_url",
+                        class: "linkedin_url",
+                        value: props.attributes.linkedin_url,
+                        onChange: updateLinkedin_url
+                    })
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement("strong", null, "google URL:")
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement("input", {
+                        type: "text",
+                        name: "google_url",
+                        id: "google_url",
+                        class: "google_url",
+                        value: props.attributes.google_url,
+                        onChange: updateGoogle_url
+                    })
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement("strong", null, "google URL:")
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement("input", {
+                        type: "text",
+                        name: "flicker_url",
+                        id: "flicker_url",
+                        class: "flicker_url",
+                        value: props.attributes.flicker_url,
+                        onChange: updateFlicker_url
+                    })
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement("strong", null, "youtube URL:")
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement("input", {
+                        type: "text",
+                        name: "youtube_url",
+                        id: "youtube_url",
+                        class: "youtube_url",
+                        value: props.attributes.youtube_url,
+                        onChange: updateYoutube_url
+                    })
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement("strong", null, "Instagram URL:")
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement("input", {
+                        type: "text",
+                        name: "instagram_url",
+                        id: "instagram_url",
+                        class: "instagram_url",
+                        value: props.attributes.instagram_url,
+                        onChange: updateInstagram_url
+                    })
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement("strong", null, "Pinterest URL:")
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement("input", {
+                        type: "text",
+                        name: "pinterest_url",
+                        id: "pinterest_url",
+                        class: "pinterest_url",
+                        value: props.attributes.pinterest_url,
+                        onChange: updatePinterest_url
+                    })
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement("strong", null, "Social link target")
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "select",
+                        {
+                            id: "social_link_target",
+                            class: "social_link_target",
+                            value: props.attributes.social_link_target,
+                            onChange: updateSocial_link_target
+                        },
+                        wp.element.createElement(
+                            "option",
+                            {
+                                value: "blank"
+                            },
+                            "_blank"
+                        ),
+                        wp.element.createElement(
+                            "option",
+                            {
+                                value: "self"
+                            },
+                            "_self"
+                        ),
+                        wp.element.createElement(
+                            "option",
+                            {
+                                value: "parent"
+                            },
+                            "_parent"
+                        ),
+                        wp.element.createElement(
+                            "option",
+                            {
+                                value: "top"
+                            },
+                            "_top"
+                        )
+                    )
+                )
+            )
+        );
+    },
+    save:function (props){
+        return wp.element.createElement(
+            "div",
+            null,
+            wp.element.createElement(
+                "p",
+                null,
+                '[wp_coupon_newsletter mail_chimp_action="',
+                props.attributes.coupon_nb,
+                '" before_form="',
+                props.attributes.coupon_excerpt,
+                '" after_form="',
+                props.attributes.coupon_excerpt_hide_img,
+                '" facebook_url="',
+                props.attributes.box_layout,
+                '" twitter_url="',
+                props.attributes.paging,
+                '" linkedin_url="',
+                props.attributes.exp_coupon,
+                '" google_url="',
+                props.attributes.latest_coupon_tab_hide,
+                '" flicker_url="',
+                props.attributes.popupar_tab,
+                '" youtube_url="',
+                props.attributes.popupar_tab,
+                '" instagram_url="',
+                props.attributes.popupar_tab,
+                '" pinterest_url="',
+                props.attributes.popupar_tab,
+                '" social_link_target="',
+                props.attributes.ending_tab,
+                '"]'
+            )
+        );
+    }
+});
+
+wp.blocks.registerBlockType('wp-coupon/store-carousel', {
+    title: 'WPCoupon Store Carousel',
+    icon: 'image-flip-horizontal',
+    category: 'widgets',
+    attributes: {
+        stc_feature_store_only: {type: 'string'},
+        stc_include: {type: 'string'},
+        stc_exc_id: {type: 'string'},
+        stc_order_by: {type: 'string'},
+        stc_order: {type: 'string'},
+        stc_slide_speed: {type: 'string'},
+        stc_pagi_speed: {type: 'string'},
+        stc_num_item_visible: {type: 'string'},
+        stc_num_item_visible_tab: {type: 'string'},
+        stc_num_item_visible_mobile: {type: 'string'},
+        stc_auto_play: {type: 'string'},
+        stc_stop_on_hover: {type: 'string'},
+    },
+    edit:function (props){
+        function updateStc_feature_store_only(event){
+            if (event.target.checked) {
+                props.setAttributes({ stc_feature_store_only: 'on' });
+            } else {
+                props.setAttributes({ stc_feature_store_only: '' });
+            }
+        }
+        function updateStc_include(event){
+            props.setAttributes({stc_include: event.target.value})
+        }
+        function updateStc_exc_id(event){
+            props.setAttributes({stc_exc_id: event.target.value})
+        }
+        function updateStc_order_by(event){
+            props.setAttributes({stc_order_by: event.target.value})
+        }
+        function updateStc_order(event){
+            props.setAttributes({stc_order: event.target.value})
+        }
+        function updateStc_slide_speed(event){
+            props.setAttributes({stc_slide_speed: event.target.value})
+        }
+        function updateStc_pagi_speed(event){
+            props.setAttributes({stc_pagi_speed: event.target.value})
+        }
+        function updateStc_num_item_visible(event){
+            props.setAttributes({stc_num_item_visible: event.target.value})
+        }
+        function updateStc_num_item_visible_tab(event){
+            props.setAttributes({stc_num_item_visible_tab: event.target.value})
+        }
+        function updateStc_num_item_visible_mobile(event){
+            props.setAttributes({stc_num_item_visible_mobile: event.target.value})
+        }
+        function updateStc_auto_play(event){
+            props.setAttributes({stc_auto_play: event.target.value})
+        }
+        function updateStc_stop_on_hover(event){
+            props.setAttributes({stc_stop_on_hover: event.target.value})
+        }
+        return wp.element.createElement(
+            "div",
+            null,
+            wp.element.createElement("h4", null, "WP Coupon Store Carousel"),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement("input", {
+                        type: "checkbox",
+                        name: "stc_feature_store_only",
+                        id: "stc_feature_store_only",
+                        class: "stc_feature_store_only",
+                        value: props.attributes.stc_feature_store_only,
+                        onChange: updateStc_feature_store_only
+                    }),
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement(
+                            "strong",
+                            null,
+                            "Featured stores only.:"
+                        )
+                    )
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement("strong", null, "Include:")
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement("input", {
+                        type: "text",
+                        name: "stc_include",
+                        id: "stc_include",
+                        class: "stc_include",
+                        value: props.attributes.stc_include,
+                        onChange: updateStc_include
+                    })
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement("strong", null, "Exclude:")
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement("input", {
+                        type: "text",
+                        name: "stc_exc_id",
+                        id: "stc_exc_id",
+                        class: "stc_exc_id",
+                        value: props.attributes.stc_exc_id,
+                        onChange: updateStc_exc_id
+                    })
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement(
+                            "strong",
+                            null,
+                            "How many stores to display ?"
+                        )
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement("input", {
+                        type: "number",
+                        name: "stc_order",
+                        id: "stc_order",
+                        class: "stc_order",
+                        value: props.attributes.stc_order,
+                        onChange: updateStc_order
+                    })
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement("strong", null, "Order by:")
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "select",
+                        {
+                            id: "stc_order_by",
+                            class: "stc_order_by",
+                            value: props.attributes.stc_order_by,
+                            onChange: updateStc_order_by
+                        },
+                        wp.element.createElement(
+                            "option",
+                            {
+                                value: "none"
+                            },
+                            "Default"
+                        ),
+                        wp.element.createElement(
+                            "option",
+                            {
+                                value: "count"
+                            },
+                            "Number of Coupons"
+                        ),
+                        wp.element.createElement(
+                            "option",
+                            {
+                                value: "name"
+                            },
+                            "Title"
+                        ),
+                        wp.element.createElement(
+                            "option",
+                            {
+                                value: "id"
+                            },
+                            "Preserve Store ID order given in the inlcude IDs"
+                        )
+                    )
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement("strong", null, "Order:")
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "select",
+                        {
+                            id: "stc_order",
+                            class: "stc_order",
+                            value: "",
+                            onchange: ""
+                        },
+                        wp.element.createElement(
+                            "option",
+                            {
+                                value: "desc"
+                            },
+                            "DESC"
+                        ),
+                        wp.element.createElement(
+                            "option",
+                            {
+                                value: "asc"
+                            },
+                            "ASC"
+                        )
+                    )
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement(
+                            "strong",
+                            null,
+                            "Slide speed (millisecond):"
+                        )
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement("input", {
+                        type: "number",
+                        name: "stc_slide_speed",
+                        id: "stc_slide_speed",
+                        class: "stc_slide_speed",
+                        value: props.attributes.stc_slide_speed,
+                        onChange: updateStc_slide_speed
+                    })
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement(
+                            "strong",
+                            null,
+                            "Pagination speed (millisecond):"
+                        )
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement("input", {
+                        type: "number",
+                        name: "stc_pagi_speed",
+                        id: "stc_pagi_speed",
+                        class: "stc_pagi_speed",
+                        value: props.attributes.stc_pagi_speed,
+                        onChange: updateStc_pagi_speed
+                    })
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement(
+                            "strong",
+                            null,
+                            "Number items visible:"
+                        )
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement("input", {
+                        type: "number",
+                        name: "stc_num_item_visible",
+                        id: "stc_num_item_visible",
+                        class: "stc_num_item_visible",
+                        value: props.attributes.stc_num_item_visible,
+                        onChange: updateStc_num_item_visible
+                    })
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement(
+                            "strong",
+                            null,
+                            "Number items visible on tablet:"
+                        )
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement("input", {
+                        type: "number",
+                        name: "stc_num_item_visible_tab",
+                        id: "stc_num_item_visible_tab",
+                        class: "stc_num_item_visible_tab",
+                        value: props.attributes.stc_num_item_visible_tab,
+                        onChange: updateStc_num_item_visible_tab
+                    })
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement(
+                            "strong",
+                            null,
+                            "Number items visible on mobile:"
+                        )
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement("input", {
+                        type: "text",
+                        name: "stc_num_item_visible_mobile",
+                        id: "stc_num_item_visible_mobile",
+                        class: "stc_num_item_visible_mobile",
+                        value: props.attributes.stc_num_item_visible_mobile,
+                        onChange: updateStc_num_item_visible_mobile
+                    })
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement("strong", null, "Auto play:")
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "select",
+                        {
+                            id: "stc_auto_play",
+                            class: "stc_auto_play",
+                            value: props.attributes.stc_auto_play,
+                            onChange: updateStc_auto_play
+                        },
+                        wp.element.createElement(
+                            "option",
+                            {
+                                value: "true"
+                            },
+                            "Yes"
+                        ),
+                        wp.element.createElement(
+                            "option",
+                            {
+                                value: "false"
+                            },
+                            "No"
+                        )
+                    )
+                )
+            ),
+            wp.element.createElement(
+                "div",
+                {
+                    class: "input-row"
+                },
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "label",
+                        null,
+                        wp.element.createElement("strong", null, "Stop on hover:")
+                    )
+                ),
+                wp.element.createElement(
+                    "p",
+                    null,
+                    wp.element.createElement(
+                        "select",
+                        {
+                            id: "stc_stop_on_hover",
+                            class: "stc_stop_on_hover",
+                            value: props.attributes.stc_stop_on_hover,
+                            onChange: updateStc_stop_on_hover
+                        },
+                        wp.element.createElement(
+                            "option",
+                            {
+                                value: "true"
+                            },
+                            "Yes"
+                        ),
+                        wp.element.createElement(
+                            "option",
+                            {
+                                value: "false"
+                            },
+                            "No"
+                        )
+                    )
+                )
+            )
+        );
+    },
+    save:function (props){
+        return 0;
+    }
+});

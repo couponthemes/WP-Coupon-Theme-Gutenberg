@@ -556,7 +556,6 @@ require_once get_template_directory() . '/inc/widgets/sidebar.php';
 require_once get_template_directory() . '/inc/widgets/headline.php';
 require_once get_template_directory() . '/inc/widgets/slider.php';
 
-
 /**
  * Blocks
  */
@@ -567,7 +566,8 @@ require_once get_template_directory() . '/inc/widgets/slider.php';
 require_once get_template_directory() . '/inc/block/store-list/store-list.php';
 require_once get_template_directory() . '/inc/block/trending-coupon/trending-coupon.php';
 require_once get_template_directory() . '/inc/block/category-list/category-list.php';
-
+require_once get_template_directory() . '/inc/block/newsletter/newsletter.php';
+require_once get_template_directory() . '/inc/block/store-carousel/store-carousel.php';
 //require_once get_template_directory() . '/inc/block/my-cool-border-box/my-block.php';
 
 
