@@ -1319,7 +1319,8 @@ wp.blocks.registerBlockType('wp-coupon/store-carousel', {
                         name: "stc_feature_store_only",
                         id: "stc_feature_store_only",
                         class: "stc_feature_store_only",
-                        value: props.attributes.stc_feature_store_only,
+                        // value: '',
+                        checked: props.attributes.stc_feature_store_only ? 'checked' : '',
                         onChange: updateStc_feature_store_only
                     }),
                     wp.element.createElement(
@@ -1758,6 +1759,38 @@ wp.blocks.registerBlockType('wp-coupon/store-carousel', {
         );
     },
     save:function (props){
-        return 0;
+        return wp.element.createElement(
+            "div",
+            null,
+            wp.element.createElement(
+                "p",
+                null,
+                '[wp_coupon_store_carousel stc_feature_store_only="',
+                props.attributes.stc_feature_store_only,
+                '" stc_include="',
+                props.attributes.stc_include,
+                '" stc_exc_id="',
+                props.attributes.stc_exc_id,
+                '" stc_order_by="',
+                props.attributes.stc_order_by,
+                '" stc_order="',
+                props.attributes.stc_order,
+                '" stc_slide_speed="',
+                props.attributes.stc_slide_speed,
+                '" stc_pagi_speed="',
+                props.attributes.stc_pagi_speed,
+                '" stc_num_item_visible="',
+                props.attributes.stc_num_item_visible,
+                '" stc_num_item_visible_tab="',
+                props.attributes.stc_num_item_visible_tab,
+                '" stc_num_item_visible_mobile="',
+                props.attributes.stc_num_item_visible_mobile,
+                '" stc_auto_play="',
+                props.attributes.stc_auto_play,
+                '" stc_stop_on_hover="',
+                props.attributes.stc_stop_on_hover,
+                '"]'
+            )
+        );
     }
 });
