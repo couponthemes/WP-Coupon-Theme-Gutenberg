@@ -375,6 +375,15 @@ function wpcoupon_theme_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'wpcoupon_theme_scripts' );
 
+/**
+ * Admin CSS
+ */
+function wpdocs_enqueue_custom_admin_style() {
+    wp_register_style( 'block-css', get_template_directory_uri() . '/assets/css/block.css', false, '1.0.0' );
+    wp_enqueue_style( 'block-css' );
+}
+add_action( 'admin_enqueue_scripts', 'wpdocs_enqueue_custom_admin_style' );
+
 
 /**
  * Helper lib
@@ -564,11 +573,16 @@ require_once get_template_directory() . '/inc/widgets/slider.php';
 //require_once get_template_directory() . '/inc/block/test/test.php';
 
 require_once get_template_directory() . '/inc/block/store-list/store-list.php';
-require_once get_template_directory() . '/inc/block/trending-coupon/trending-coupon.php';
+//require_once get_template_directory() . '/inc/block/trending-coupon/trending-coupon.php';
 require_once get_template_directory() . '/inc/block/category-list/category-list.php';
 require_once get_template_directory() . '/inc/block/newsletter/newsletter.php';
 require_once get_template_directory() . '/inc/block/store-carousel/store-carousel.php';
+
 //require_once get_template_directory() . '/inc/block/my-cool-border-box/my-block.php';
+
+//require_once get_template_directory() . '/inc/block/05-recipe-card/index.php';
+
+require_once get_template_directory() . '/inc/block/sidebar-test/sidebar-test.php';
 
 
 if ( wpcoupon_is_wc() ) {

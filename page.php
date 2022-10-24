@@ -27,7 +27,7 @@ $layout = wpcoupon_get_site_layout();
                 <?php
                 get_template_part('content');
 
-                wpcoupon_wp_link_pages( );
+                wpcoupon_wp_link_pages();
 
                 // If comments are open or we have at least one comment, load up the comment template.
                 if ( comments_open() || get_comments_number() ) :
@@ -36,16 +36,12 @@ $layout = wpcoupon_get_site_layout();
                 ?>
             </main><!-- #main -->
         </div><!-- #primary -->
-
         <?php
-
         if ( $layout != 'no-sidebar' ) {
             echo '<div id="secondary" class="widget-area sidebar" role="complementary">';
             dynamic_sidebar('sidebar-2');
             echo "</div>";
         }
-
         ?>
     </div> <!-- /#content-wrap -->
-
 <?php get_footer(); ?>

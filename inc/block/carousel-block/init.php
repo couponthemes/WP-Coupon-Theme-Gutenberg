@@ -25,7 +25,6 @@ function carousel_block_editor_assets() {
 
 	// Register block editor styles for backend.
 
-
     wp_enqueue_style( 'blocks-editor-build',
         get_template_directory_uri() . '/inc/block/carousel-block/dist/blocks.editor.build.css',
         [ 'wp-edit-blocks' ],

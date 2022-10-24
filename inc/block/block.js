@@ -45,7 +45,7 @@ wp.blocks.registerBlockType('wp-coupon/storelist', {
             wp.element.createElement(
                 "p",
                 null,
-                wp.element.createElement("label", null, "Number store to show:")
+                wp.element.createElement("strong", null, "Number store to show:")
             ),
             wp.element.createElement(
                 "p",
@@ -63,7 +63,7 @@ wp.blocks.registerBlockType('wp-coupon/storelist', {
                 "p",
                 null,
                 wp.element.createElement(
-                    "label",
+                    "strong",
                     null,
                     "Comma-separated of term ids to include:"
                 )
@@ -84,7 +84,7 @@ wp.blocks.registerBlockType('wp-coupon/storelist', {
                 "p",
                 null,
                 wp.element.createElement(
-                    "label",
+                    "strong",
                     null,
                     "Comma-separated of term ids to exclude:"
                 )
@@ -104,7 +104,7 @@ wp.blocks.registerBlockType('wp-coupon/storelist', {
             wp.element.createElement(
                 "p",
                 null,
-                wp.element.createElement("label", null, "Number item per row:")
+                wp.element.createElement("strong", null, "Number item per row:")
             ),
             wp.element.createElement(
                 "p",
@@ -121,7 +121,7 @@ wp.blocks.registerBlockType('wp-coupon/storelist', {
             wp.element.createElement(
                 "p",
                 null,
-                wp.element.createElement("label", null, "Order by")
+                wp.element.createElement("strong", null, "Order by")
             ),
             wp.element.createElement(
                 "p",
@@ -160,7 +160,7 @@ wp.blocks.registerBlockType('wp-coupon/storelist', {
             wp.element.createElement(
                 "p",
                 null,
-                wp.element.createElement("label", null, "Order")
+                wp.element.createElement("strong", null, "Order")
             ),
             wp.element.createElement(
                 "p",
@@ -1262,13 +1262,6 @@ wp.blocks.registerBlockType('wp-coupon/store-carousel', {
         stc_stop_on_hover: {type: 'string'},
     },
     edit:function (props){
-        function updateStc_feature_store_only(event){
-            if (event.target.checked) {
-                props.setAttributes({ stc_feature_store_only: 'on' });
-            } else {
-                props.setAttributes({ stc_feature_store_only: '' });
-            }
-        }
         function updateStc_include(event){
             props.setAttributes({stc_include: event.target.value})
         }
@@ -1306,34 +1299,6 @@ wp.blocks.registerBlockType('wp-coupon/store-carousel', {
             "div",
             null,
             wp.element.createElement("h4", null, "WP Coupon Store Carousel"),
-            wp.element.createElement(
-                "div",
-                {
-                    class: "input-row"
-                },
-                wp.element.createElement(
-                    "p",
-                    null,
-                    wp.element.createElement("input", {
-                        type: "checkbox",
-                        name: "stc_feature_store_only",
-                        id: "stc_feature_store_only",
-                        class: "stc_feature_store_only",
-                        // value: '',
-                        checked: props.attributes.stc_feature_store_only ? 'checked' : '',
-                        onChange: updateStc_feature_store_only
-                    }),
-                    wp.element.createElement(
-                        "label",
-                        null,
-                        wp.element.createElement(
-                            "strong",
-                            null,
-                            "Featured stores only.:"
-                        )
-                    )
-                )
-            ),
             wp.element.createElement(
                 "div",
                 {
@@ -1765,9 +1730,7 @@ wp.blocks.registerBlockType('wp-coupon/store-carousel', {
             wp.element.createElement(
                 "p",
                 null,
-                '[wp_coupon_store_carousel stc_feature_store_only="',
-                props.attributes.stc_feature_store_only,
-                '" stc_include="',
+                '[wp_coupon_store_carousel stc_include="',
                 props.attributes.stc_include,
                 '" stc_exc_id="',
                 props.attributes.stc_exc_id,

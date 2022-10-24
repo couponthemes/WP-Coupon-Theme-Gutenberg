@@ -104,11 +104,11 @@ $layout = wpcoupon_get_option( 'store_layout', 'left-sidebar' );
 					<div class="ajax-coupons">
 						<div class="store-listings st-list-coupons couponstore-tpl-<?php echo esc_attr( $loop_tpl ); ?>">
 							<?php
-							while ( have_posts() ) {
-								the_post();
-								wpcoupon_setup_coupon( get_post( get_the_ID() ) );
-								get_template_part( 'loop/loop-coupon', $loop_tpl );
-							}
+                                while ( have_posts() ) {
+                                    the_post();
+                                    wpcoupon_setup_coupon( get_post( get_the_ID() ) );
+                                    get_template_part( 'loop/loop-coupon', $loop_tpl );
+                                }
 							?>
 						</div>
 						<!-- END .store-listings -->
@@ -126,7 +126,6 @@ $layout = wpcoupon_get_option( 'store_layout', 'left-sidebar' );
 								   data-loading-text="<?php esc_attr_e( 'Loading...', 'wp-coupon' ); ?>"><?php esc_html_e( 'Load More Coupons', 'wp-coupon' ); ?> <i class="arrow alternate circle down outline icon"></i></a>
 							</div>
 						<?php }
-
 						?>
 					</div><!-- /.ajax-coupons -->
 				</section>
